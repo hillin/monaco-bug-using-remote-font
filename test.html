@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Monaco editor</title>
+    <!-- <style>
+        @font-face {
+            font-family: "iosevka-regular";
+            src: url("fonts/iosevka-regular.woff2") format('woff2');
+        }
+    </style> -->
+    <link rel="stylesheet" data-name="vs/editor/editor.main"
+        href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/editor/editor.main.min.css">
+
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka-etoile/iosevka-etoile.min.css">
+</head>
+
+<body>
+    <div id="container" style="height:400px;border:1px solid black;"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js"></script>
+    <script>
+        // require is provided by loader.min.js.
+        require.config({
+            paths: {
+                'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs'
+            }
+        });
+        require(["vs/editor/editor.main"], () => {
+            monaco.editor.create(document.getElementById('container'), {
+                value: `separated         by        spaces\nseparated\t\tby\t\ttabs`,
+                fontFamily: 'Iosevka Etoile Web'
+            });
+        });
+    </script>
+
+</body>
+
+</html>
